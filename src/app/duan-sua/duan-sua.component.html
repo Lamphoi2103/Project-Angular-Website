@@ -1,0 +1,77 @@
+<div class="text-black font-bold text-[24px] mb-[20px] text-center">
+    Sữa Dự Án
+</div>
+<div>
+    <form [formGroup]="myFormEdit" (ngSubmit)="onSubmit()" class="mx-[240px]">
+        <div class="mb-6">
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên Dự Án</label>
+            <input type="text" id="nameProject" formControlName="tenDuAn"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Tên Dự Án" required>
+            <div *ngIf="myFormEdit.controls['tenDuAn'].errors?.['required']" class="text-[red]">Không được bỏ trống
+            </div>
+
+        </div>
+        <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <div>
+                <div class="mb-[20px]">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hình Dự
+                        Án</label>
+                    <input type="text" id="img" name="img" formControlName="img"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Hình Dự Án" required>
+                    <div *ngIf="myFormEdit.controls['img'].errors?.['required']" class="text-[red]">Không được bỏ trống
+                    </div>
+                </div>
+                <div>
+
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên
+                        Trưởng Nhóm</label>
+                    <select id="countries" formControlName="leader"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option *ngFor="let nv of nhanvien" [value]="nv._id"
+                            [selected]="myFormEdit.value.leader?._id === nv._id">
+                            {{nv.ten}}
+                        </option>
+                    </select>
+                    <div *ngIf="myFormEdit.controls['leader'].errors?.['required']" class="text-[red]">Không được bỏ
+                        trống
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="name_member" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên Thành
+                    Viên</label>
+                <!-- <input type="text" formControlName="thanhVien"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> -->
+                <select name="nhanvien" multiple formControlName="thanhVien"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option *ngFor="let nv of nhanvien" value="{{nv?._id}}">{{nv?.ten}}</option>
+                </select>
+                <div *ngIf="myFormEdit.controls['thanhVien'].errors?.['required']" class="text-[red]">Không được bỏ
+                    trống </div>
+            </div>
+            <div>
+                <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ngày Bắt
+                    Đầu</label>
+                <input type="date" id="date" formControlName="ngayStart"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Ngày Bắt Đầu" required>
+                <div *ngIf="myFormEdit.controls['ngayStart'].errors?.['required']" class="text-[red]">Không được bỏ
+                    trống </div>
+            </div>
+            <div>
+                <label for="momney" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tiền Dự
+                    Án</label>
+                <input type="number" min="0" id="momney" formControlName="tien"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tiền Dự Án" required>
+                <div *ngIf="myFormEdit.controls['tien'].errors?.['required']" class="text-[red]">Không được bỏ
+                    trống </div>
+            </div>
+        </div>
+        <button type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sửa
+            Dự Án</button>
+    </form>
+</div>

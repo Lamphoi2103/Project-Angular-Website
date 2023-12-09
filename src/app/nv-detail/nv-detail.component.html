@@ -1,0 +1,16 @@
+<h1 class="font-bold text-[30px] text-center">Chi Tiết Nhân Viên</h1>
+<div
+    class="flex flex-col my-40 mx-auto items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-2xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+        src="{{DetailNv?.img}}" alt="">
+    <div class="flex flex-col justify-between pl-4 leading-normal">
+        <p class="font-semibold text-[20px]">Họ Và Tên: {{DetailNv?.ho}} {{DetailNv?.ten}}</p>
+        <p class="text-[16px] p-1">Email: {{DetailNv?.email}}</p>
+        <!-- <p class="text-[16px] p-1">Password: {{DetailNv?.password}}</p> -->
+        <p class="text-[16px] p-1">Chức Vụ: {{DetailNv?.role == 1 ? "Nhân Viên" : "Quản Lý"}}</p>
+        <p class="text-[16px] p-1">Mã Nhân Viên: {{DetailNv?._id}}</p>
+        <p class="text-[16px] p-1">Ngày Tháng Năm Sinh: {{DetailNv?.ngaySinh | date:"dd-MM-yyyy"}}</p>
+        <p class="text-[16px] p-1">Giới Tính: {{DetailNv?.gioiTinh == 1 ? "Nam" : "Nữ"}}</p>
+        <p class="text-[16px] p-1">Địa Chỉ: {{DetailNv?.khuVuc}}</p>
+    </div>
+</div>

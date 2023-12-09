@@ -1,0 +1,17 @@
+<h1 class="font-bold text-[30px] text-center">Chi Tiết Task</h1>
+<div class="max-w-sm mx-auto my-[50px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <!-- <a href="#">
+        <img class="rounded-t-lg" src="https://dammecode.files.wordpress.com/2019/10/qj4fbq3wwv0pxasvf57drlggaom.jpeg" alt="" />
+    </a> -->
+    <div class="p-5">
+        <p class="text-[24px] font-semibold">Tên Task: {{Detail.tenTask}}</p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1">Mô tả công việc: {{Detail.moTa}} </p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1">ID dự án: {{Detail.duAnID}}</p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1">ID Nhân viên: {{Detail.nhanvienID}}</p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1">Priority: {{Detail.priority}}</p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1">Trạng Thái: {{Detail.status == 1 ? "Đang triển khai" : "Hoàn thành"}}</p>
+        <a href="#" routerLink="/task/" class=" inline-flex items-center px-3 py-2 text-sm font-medium text-center mt-4 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Danh Sách Task
+        </a>
+    </div>
+</div>

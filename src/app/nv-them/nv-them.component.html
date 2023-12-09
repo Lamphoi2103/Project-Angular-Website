@@ -1,0 +1,76 @@
+<div class="text-black font-bold text-[24px] mb-[20px] text-center">
+    Thêm Nhân Viên
+</div>
+<form [formGroup]="myFormAdd" (ngSubmit)="onSubmit()" class="mx-[240px]">
+
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="firt_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Họ Nhân
+                Viên</label>
+            <input type="text" name="ho" formControlName="ho" id="firt_name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Họ Nhân Viên">
+            <div *ngIf="myFormAdd.controls['ho'].errors?.['required']" class="text-[red]">Không được bỏ trống</div>
+        </div>
+        <div>
+            <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên Nhân
+                Viên</label>
+            <input type="text" name="ten" formControlName="ten" id="last_name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Tên Nhân Viên" required>
+            <div *ngIf="myFormAdd.controls['ten'].errors?.['required']" class="text-[red]">Không được bỏ trống</div>
+        </div>
+        <div>
+            <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <input type="email" name="email" formControlName="email" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Email" required>
+            <div *ngIf="myFormAdd.controls['email'].errors?.['required']" class="text-[red]">Không được bỏ trống</div>
+        </div>
+        <div>
+            <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mật Khẩu</label>
+            <input type="password" name="password" formControlName="password" id="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Mật khẩu" required>
+            <div *ngIf="myFormAdd.controls['password'].errors?.['required']" class="text-[red]">Không được bỏ trống
+            </div>
+        </div>
+        <div>
+            <label for="img" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hình Ảnh</label>
+            <input type="text" name="img" formControlName="img" id="img"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Hình ảnh" required>
+            <div *ngIf="myFormAdd.controls['img'].errors?.['required']" class="text-[red]">Không được bỏ trống</div>
+        </div>
+        <div>
+            <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ngày Tháng Năm
+                Sinh</label>
+            <input type="date" name="ngaySinh" formControlName="ngaySinh" id="date"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Ngày Bắt Đầu" required>
+            <div *ngIf="myFormAdd.controls['ngaySinh'].errors?.['required']" class="text-[red]">Không được bỏ trống
+            </div>
+        </div>
+        <div>
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Giới
+                Tính</label>
+            <select id="countries" name="gioiTinh" formControlName="gioiTinh"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="true">Nam</option>
+                <option value="false">Nữ</option>
+            </select>
+            <div *ngIf="myFormAdd.controls['gioiTinh'].errors?.['required']" class="text-[red]">Không được bỏ trống
+            </div>
+        </div>
+        <div>
+            <label for="khuvuc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Khu Vực</label>
+            <input type="text" name="khuVuc" formControlName="khuVuc" id="khuvuc"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Khu Vực" required>
+            <div *ngIf="myFormAdd.controls['khuVuc'].errors?.['required']" class="text-[red]">Không được bỏ trống</div>
+        </div>
+    </div>
+    <button type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Thêm
+        Nhân Viên</button>
+</form>

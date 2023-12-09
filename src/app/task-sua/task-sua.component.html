@@ -1,0 +1,57 @@
+<div class="text-black font-bold text-[24px] mb-[20px] text-center">
+    Sữa Task
+</div>
+<form [formGroup]="myFormEdit" (ngSubmit)="onSubmit()" class="mx-[240px]">
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="firt_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên Task</label>
+            <input type="text" id="firt_name" name="tenTask" formControlName="tenTask"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Tên Task" required>
+            <div *ngIf="myFormEdit.controls['tenTask'].errors?.['required']" class="text-[red]">Không được bỏ trống
+            </div>
+        </div>
+        <div>
+            <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID Nhân Viên</label>
+            <select id="countries" name="nhanvienID" formControlName="nhanvienID"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <!-- <option value="">Nhân Viên Thực Hiện</option> -->
+                <option *ngFor="let nv of allmember" [value]="nv._id">{{nv.ten}}</option>
+            </select>
+            <div *ngIf="myFormEdit.controls['nhanvienID'].errors?.['required']" class="text-[red]">Không được bỏ trống
+            </div>
+        </div>
+        <div>
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Priority</label>
+            <select id="countries" name="priority" formControlName="priority"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="1">Thấp</option>
+                <option value="2">Trung Bình</option>
+                <option value="3">Cao</option>
+            </select>
+            <div *ngIf="myFormEdit.controls['priority'].errors?.['required']" class="text-[red]">Không được bỏ trống
+            </div>
+        </div>
+        <div>
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+            <select id="countries" name="status" formControlName="status"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="1">Đang Triển Khai</option>
+                <option value="2">Sắp Hoàn Thiện</option>
+                <option value="3">Hoàn thành</option>
+            </select>
+            <div *ngIf="myFormEdit.controls['status'].errors?.['required']" class="text-[red]">Không được bỏ trống</div>
+        </div>
+    </div>
+    <div class="mb-6">
+        <label for="mota" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mô Tả Task</label>
+        <textarea id="mota" rows="4" formControlName="moTa"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Mô Tả Task"></textarea>
+        <div *ngIf="myFormEdit.controls['moTa'].errors?.['required']" class="text-[red]">Không được bỏ trống</div>
+
+    </div>
+    <button type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sửa
+        Task</button>
+</form>

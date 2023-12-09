@@ -1,0 +1,22 @@
+<h1 class="font-bold text-[30px] text-center">Chi Tiết Dự Án</h1>
+<div
+    class="max-w-sm mx-auto my-[50px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <img class="rounded-t-lg" src="{{Detail?.img}}" alt="" />
+    </a>
+    <div class="p-5">
+        <p class="text-[24px] font-semibold">Tên Dự Án: {{Detail?.tenDuAn}}</p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1">Ngày bắt Đầu: {{Detail?.ngayStart |
+            date:"dd/MM/yyyy"}} </p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1">Số tiền dự trù: {{Detail?.tien | number:
+            '1.0-0'}} VND</p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1">Nhóm Trưởng: {{Detail?.leader?.ten}}</p>
+        <p class="font-normal text-[black] text-[16px] leading-[20px] p-1" *ngFor="let members of Detail?.thanhVien">
+            Thành Viên: {{members?.ten}}</p>
+        <!-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p> -->
+        <a href="#" routerLink="/duan/"
+            class=" inline-flex items-center px-3 py-2 text-sm font-medium text-center mt-4 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Danh Sách Dự Án
+        </a>
+    </div>
+</div>
